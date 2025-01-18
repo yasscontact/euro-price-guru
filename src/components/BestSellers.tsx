@@ -97,6 +97,10 @@ const BestSellers = () => {
         <h2 className="text-2xl font-bold text-amazon-dark">
           Meilleures opportunités d'économies
         </h2>
+        <div className="flex gap-2">
+          <CarouselPrevious className="relative static md:flex left-0 translate-y-0" />
+          <CarouselNext className="relative static md:flex right-0 translate-y-0" />
+        </div>
       </div>
       <Carousel
         opts={{
@@ -136,8 +140,6 @@ const BestSellers = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="hidden md:flex" />
-        <CarouselNext className="hidden md:flex" />
       </Carousel>
     </div>
   );
