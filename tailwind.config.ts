@@ -1,9 +1,14 @@
-import { type Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
+import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./index.html", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
+  prefix: "",
   theme: {
     container: {
       center: true,
@@ -16,8 +21,8 @@ export default {
       colors: {
         amazon: {
           dark: "#232F3E",
-          light: "#37475A",
           orange: "#FF9900",
+          light: "#FEBD69",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -53,14 +58,14 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+        heading: ["Montserrat", "sans-serif"],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-      },
-      fontFamily: {
-        sans: ["Inter", ...fontFamily.sans],
-        heading: ["Montserrat", ...fontFamily.sans],
       },
       keyframes: {
         "accordion-down": {
@@ -71,10 +76,15 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        fadeIn: "fadeIn 0.5s ease-out",
       },
     },
   },
