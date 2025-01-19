@@ -7,7 +7,7 @@ import {
   PopoverTrigger,
 } from "./ui/popover";
 import { Checkbox } from "./ui/checkbox";
-import { getCode } from "country-flag-icons/unicode";
+import getCode from "country-flag-icons/unicode";
 
 export type Country = {
   code: string;

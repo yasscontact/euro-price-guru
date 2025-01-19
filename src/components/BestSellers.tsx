@@ -6,7 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { getCode } from "country-flag-icons/unicode";
+import getCode from "country-flag-icons/unicode";
 
 const mockBestSellers = [
   {
