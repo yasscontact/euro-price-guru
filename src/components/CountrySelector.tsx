@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, Globe, ChevronDown } from "lucide-react";
+import { Check, Globe, ChevronDown, Flag } from "lucide-react";
 import { Button } from "./ui/button";
 import {
   Popover,
@@ -7,7 +7,6 @@ import {
   PopoverTrigger,
 } from "./ui/popover";
 import { Checkbox } from "./ui/checkbox";
-import unicode from "country-flag-icons/unicode";
 
 export type Country = {
   code: string;
@@ -66,7 +65,7 @@ export const CountrySelector = () => {
                   htmlFor={country.code}
                   className="flex items-center gap-2 text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                 >
-                  <span>{unicode(country.code)}</span>
+                  <Flag className="h-4 w-4" />
                   <span>{country.name}</span>
                 </label>
               </div>
