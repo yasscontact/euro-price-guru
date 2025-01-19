@@ -6,7 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import getCode from "country-flag-icons/unicode";
+import unicode from "country-flag-icons/unicode";
 
 const mockBestSellers = [
   {
@@ -77,10 +77,10 @@ const BestSellers = () => {
                   <div className="space-y-2">
                     <p className="text-green-600 flex items-center gap-1">
                       <Euro className="h-4 w-4" />
-                      Meilleur prix: {item.minPrice}€ {getCode(item.bestMarket)}
+                      Meilleur prix: {item.minPrice}€ {unicode(item.bestMarket)}
                     </p>
                     <p className="text-red-600 flex items-center gap-1">
-                      Prix le plus élevé: {item.maxPrice}€ {getCode(item.worstMarket)}
+                      Prix le plus élevé: {item.maxPrice}€ {unicode(item.worstMarket)}
                     </p>
                     <p className="font-semibold text-amazon-orange">
                       Économie potentielle: {item.difference}€

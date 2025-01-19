@@ -7,7 +7,7 @@ import {
   PopoverTrigger,
 } from "./ui/popover";
 import { Checkbox } from "./ui/checkbox";
-import getCode from "country-flag-icons/unicode";
+import unicode from "country-flag-icons/unicode";
 
 export type Country = {
   code: string;
@@ -66,7 +66,7 @@ export const CountrySelector = () => {
                   htmlFor={country.code}
                   className="flex items-center gap-2 text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                 >
-                  <span>{getCode(country.code)}</span>
+                  <span>{unicode(country.code)}</span>
                   <span>{country.name}</span>
                 </label>
               </div>
