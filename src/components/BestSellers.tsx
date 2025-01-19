@@ -6,13 +6,13 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { getCode } from "country-flag-icons/unicode";
+import { Flag } from "lucide-react";
 
 const mockBestSellers = [
   {
     id: 1,
     title: "PlayStation 5",
-    image: "https://via.placeholder.com/200",
+    image: "/placeholder.svg",
     minPrice: 449.99,
     maxPrice: 549.99,
     difference: 100,
@@ -22,7 +22,7 @@ const mockBestSellers = [
   {
     id: 2,
     title: "Apple AirPods Pro",
-    image: "https://via.placeholder.com/200",
+    image: "/placeholder.svg",
     minPrice: 219.99,
     maxPrice: 279.99,
     difference: 60,
@@ -32,7 +32,7 @@ const mockBestSellers = [
   {
     id: 3,
     title: "Nintendo Switch OLED",
-    image: "https://via.placeholder.com/200",
+    image: "/placeholder.svg",
     minPrice: 329.99,
     maxPrice: 369.99,
     difference: 40,
@@ -77,10 +77,10 @@ const BestSellers = () => {
                   <div className="space-y-2">
                     <p className="text-green-600 flex items-center gap-1">
                       <Euro className="h-4 w-4" />
-                      Meilleur prix: {item.minPrice}€ {getCode(item.bestMarket)}
+                      Meilleur prix: {item.minPrice}€ <Flag className="h-4 w-4" />
                     </p>
                     <p className="text-red-600 flex items-center gap-1">
-                      Prix le plus élevé: {item.maxPrice}€ {getCode(item.worstMarket)}
+                      Prix le plus élevé: {item.maxPrice}€ <Flag className="h-4 w-4" />
                     </p>
                     <p className="font-semibold text-amazon-orange">
                       Économie potentielle: {item.difference}€
