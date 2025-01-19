@@ -12,7 +12,7 @@ const mockBestSellers = [
   {
     id: 1,
     title: "PlayStation 5",
-    image: "https://via.placeholder.com/200",
+    image: "https://placehold.co/200",
     minPrice: 449.99,
     maxPrice: 549.99,
     difference: 100,
@@ -22,7 +22,7 @@ const mockBestSellers = [
   {
     id: 2,
     title: "Apple AirPods Pro",
-    image: "https://via.placeholder.com/200",
+    image: "https://placehold.co/200",
     minPrice: 219.99,
     maxPrice: 279.99,
     difference: 60,
@@ -32,7 +32,7 @@ const mockBestSellers = [
   {
     id: 3,
     title: "Nintendo Switch OLED",
-    image: "https://via.placeholder.com/200",
+    image: "https://placehold.co/200",
     minPrice: 329.99,
     maxPrice: 369.99,
     difference: 40,
