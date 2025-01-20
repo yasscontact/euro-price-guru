@@ -61,7 +61,7 @@ const SearchBar = () => {
                 ? "Rechercher un produit..."
                 : "Entrez un ASIN ou collez une URL Amazon..."
             }
-            className="search-input pr-12"
+            className="search-input pr-16"
           />
           <Button
             type="submit"
