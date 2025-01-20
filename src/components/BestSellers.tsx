@@ -6,12 +6,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 
 const mockBestSellers = [
   {
@@ -128,30 +122,10 @@ const BestSellers = () => {
                   <div className="space-y-2">
                     <p className="text-green-600 flex items-center gap-1">
                       <Euro className="h-4 w-4" />
-                      Meilleur prix: {item.minPrice}€ 
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger>
-                            <Flag className="h-4 w-4 ml-1" />
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>{item.bestMarket}</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
+                      Meilleur prix: {item.minPrice}€ <Flag className="h-4 w-4 ml-1" title={item.bestMarket} />
                     </p>
                     <p className="text-red-600 flex items-center">
-                      Prix le plus élevé: {item.maxPrice}€ 
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger>
-                            <Flag className="h-4 w-4 ml-1" />
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>{item.worstMarket}</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
+                      Prix le plus élevé: {item.maxPrice}€ <Flag className="h-4 w-4 ml-1" title={item.worstMarket} />
                     </p>
                     <p className="font-semibold text-amazon-orange">
                       Économie potentielle: {item.difference}€
