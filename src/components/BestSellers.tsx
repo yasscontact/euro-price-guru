@@ -6,7 +6,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 const mockBestSellers = [
   {
@@ -98,11 +97,6 @@ const BestSellers = () => {
         <h2 className="text-2xl font-bold text-amazon-dark">
           Meilleures opportunités d'économies
         </h2>
-        <ScrollArea className="h-[50px] w-[200px] rounded-md border p-2">
-          <div className="text-sm">
-            Faites défiler pour voir plus de produits et découvrir les meilleures offres du moment.
-          </div>
-        </ScrollArea>
       </div>
       <Carousel
         opts={{
