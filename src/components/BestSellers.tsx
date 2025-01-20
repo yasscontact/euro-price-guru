@@ -1,4 +1,4 @@
-import { Euro, Flag } from "lucide-react";
+import { Euro } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -122,10 +122,10 @@ const BestSellers = () => {
                   <div className="space-y-2">
                     <p className="text-green-600 flex items-center gap-1">
                       <Euro className="h-4 w-4" />
-                      Meilleur prix: {item.minPrice}€ <Flag className="h-4 w-4 ml-1" title={item.bestMarket} />
+                      Meilleur prix: {item.minPrice}€ ({item.bestMarket})
                     </p>
-                    <p className="text-red-600 flex items-center">
-                      Prix le plus élevé: {item.maxPrice}€ <Flag className="h-4 w-4 ml-1" title={item.worstMarket} />
+                    <p className="text-red-600">
+                      Prix le plus élevé: {item.maxPrice}€ ({item.worstMarket})
                     </p>
                     <p className="font-semibold text-amazon-orange">
                       Économie potentielle: {item.difference}€
@@ -136,8 +136,8 @@ const BestSellers = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="hidden md:flex bg-amazon-orange hover:bg-amazon-light border-none text-white" />
-        <CarouselNext className="hidden md:flex bg-amazon-orange hover:bg-amazon-light border-none text-white" />
+        <CarouselPrevious className="hidden md:flex" />
+        <CarouselNext className="hidden md:flex" />
       </Carousel>
     </div>
   );
