@@ -1,9 +1,5 @@
 import { ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
-import { CountrySelector } from "./CountrySelector";
-import { LanguageSelector } from "./LanguageSelector";
-import { CurrencySelector } from "./CurrencySelector";
-import { FavoriteButton } from "./FavoriteButton";
 
 const Header = () => {
   return (
@@ -13,12 +9,6 @@ const Header = () => {
           <ShoppingCart className="h-8 w-8 text-amazon-orange" />
           <span className="text-2xl font-bold text-white">EuroPriceGuru</span>
         </Link>
-        <div className="flex items-center gap-4">
-          <CountrySelector />
-          <LanguageSelector />
-          <CurrencySelector />
-          <FavoriteButton />
-        </div>
       </div>
     </header>
   );
