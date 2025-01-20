@@ -1,4 +1,4 @@
-import { ShoppingCart, Globe, Coins } from "lucide-react";
+import { ShoppingCart, Globe, Coins, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
   Select,
@@ -7,6 +7,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { useState } from "react";
+import { Button } from "./ui/button";
 
 const Header = () => {
   const countries = [
@@ -31,6 +39,19 @@ const Header = () => {
     { code: "es", name: "Español" }
   ];
 
+  const [selectedCountries, setSelectedCountries] = useState<string[]>(["FR"]);
+
+  const toggleCountry = (countryCode: string) => {
+    setSelectedCountries((current) => {
+      if (current.includes(countryCode)) {
+        // Don't allow deselecting if it's the last country
+        if (current.length === 1) return current;
+        return current.filter((code) => code !== countryCode);
+      }
+      return [...current, countryCode];
+    });
+  };
+
   return (
     <header className="bg-amazon-dark py-4 px-6 shadow-md">
       <div className="container mx-auto flex items-center justify-between">
@@ -42,18 +63,24 @@ const Header = () => {
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <Globe className="h-5 w-5 text-gray-300" />
-            <Select defaultValue="FR">
-              <SelectTrigger className="w-[140px] bg-transparent text-white border-gray-600">
-                <SelectValue placeholder="Select country" />
-              </SelectTrigger>
-              <SelectContent>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" className="w-[140px] bg-transparent text-white border-gray-600">
+                  Pays ({selectedCountries.length})
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-[200px]">
                 {countries.map((country) => (
-                  <SelectItem key={country.code} value={country.code}>
+                  <DropdownMenuCheckboxItem
+                    key={country.code}
+                    checked={selectedCountries.includes(country.code)}
+                    onCheckedChange={() => toggleCountry(country.code)}
+                  >
                     {country.name}
-                  </SelectItem>
+                  </DropdownMenuCheckboxItem>
                 ))}
-              </SelectContent>
-            </Select>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           <div className="flex items-center gap-2">
