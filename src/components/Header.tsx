@@ -1,5 +1,6 @@
-import { ShoppingCart, Globe, Coins, Check } from "lucide-react";
+import { ShoppingCart, Globe, Coins, Check, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   Select,
   SelectContent,
@@ -17,6 +18,8 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 
 const Header = () => {
+  const { i18n } = useTranslation();
+  
   const countries = [
     { code: "FR", name: "France" },
     { code: "DE", name: "Germany" },
@@ -39,17 +42,22 @@ const Header = () => {
     { code: "es", name: "Español" }
   ];
 
-  const [selectedCountries, setSelectedCountries] = useState<string[]>(["FR"]);
+  const [selectedCountries, setSelectedCountries] = useState<string[]>(
+    countries.map(country => country.code)
+  );
 
   const toggleCountry = (countryCode: string) => {
     setSelectedCountries((current) => {
       if (current.includes(countryCode)) {
-        // Don't allow deselecting if it's the last country
         if (current.length === 1) return current;
         return current.filter((code) => code !== countryCode);
       }
       return [...current, countryCode];
     });
+  };
+
+  const handleLanguageChange = (langCode: string) => {
+    i18n.changeLanguage(langCode);
   };
 
   return (
@@ -66,7 +74,7 @@ const Header = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline" className="w-[140px] bg-transparent text-white border-gray-600">
-                  Pays ({selectedCountries.length})
+                  Pays ({selectedCountries.length}) <ChevronDown className="ml-2 h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-[200px]">
@@ -99,7 +107,7 @@ const Header = () => {
             </Select>
           </div>
 
-          <Select defaultValue="fr">
+          <Select defaultValue="fr" onValueChange={handleLanguageChange}>
             <SelectTrigger className="w-[120px] bg-transparent text-white border-gray-600">
               <SelectValue placeholder="Language" />
             </SelectTrigger>
