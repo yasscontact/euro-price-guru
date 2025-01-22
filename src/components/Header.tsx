@@ -46,7 +46,8 @@ const Header = () => {
     countries.map(country => country.code)
   );
 
-  const toggleCountry = (countryCode: string) => {
+  const toggleCountry = (countryCode: string, e: Event) => {
+    e.preventDefault();
     setSelectedCountries((current) => {
       if (current.includes(countryCode)) {
         if (current.length === 1) return current;
@@ -82,7 +83,8 @@ const Header = () => {
                   <DropdownMenuCheckboxItem
                     key={country.code}
                     checked={selectedCountries.includes(country.code)}
-                    onCheckedChange={() => toggleCountry(country.code)}
+                    onSelect={(e) => e.preventDefault()}
+                    onCheckedChange={(checked) => toggleCountry(country.code, checked)}
                   >
                     {country.name}
                   </DropdownMenuCheckboxItem>
