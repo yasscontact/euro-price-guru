@@ -1,4 +1,4 @@
-import { ShoppingCart, Globe, Coins, Check, ChevronDown } from "lucide-react";
+import { ShoppingCart, Globe, Coins, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
@@ -18,7 +18,7 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 
 const Header = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   
   const countries = [
     { code: "FR", name: "France" },
@@ -65,7 +65,7 @@ const Header = () => {
       <div className="container mx-auto flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <ShoppingCart className="h-8 w-8 text-amazon-orange" />
-          <span className="text-2xl font-bold text-white">EuroPriceGuru</span>
+          <span className="text-2xl font-bold text-white">{t('header.title')}</span>
         </Link>
 
         <div className="flex items-center gap-4">
@@ -74,7 +74,7 @@ const Header = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline" className="w-[140px] bg-transparent text-white border-gray-600">
-                  Pays ({selectedCountries.length}) <ChevronDown className="ml-2 h-4 w-4" />
+                  {t('header.countries')} ({selectedCountries.length}) <ChevronDown className="ml-2 h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-[200px]">
@@ -96,7 +96,7 @@ const Header = () => {
             <Coins className="h-5 w-5 text-gray-300" />
             <Select defaultValue="EUR">
               <SelectTrigger className="w-[100px] bg-transparent text-white border-gray-600">
-                <SelectValue placeholder="Currency" />
+                <SelectValue placeholder={t('header.currency')} />
               </SelectTrigger>
               <SelectContent>
                 {currencies.map((currency) => (
@@ -110,7 +110,7 @@ const Header = () => {
 
           <Select defaultValue="fr" onValueChange={handleLanguageChange}>
             <SelectTrigger className="w-[120px] bg-transparent text-white border-gray-600">
-              <SelectValue placeholder="Language" />
+              <SelectValue placeholder={t('header.language')} />
             </SelectTrigger>
             <SelectContent>
               {languages.map((language) => (

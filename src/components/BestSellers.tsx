@@ -1,4 +1,5 @@
 import { Euro } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import {
   Carousel,
   CarouselContent,
@@ -91,11 +92,13 @@ const mockBestSellers = [
 ];
 
 const BestSellers = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="mt-12">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold text-amazon-dark">
-          Meilleures opportunités d'économies
+          {t('bestSellers.title')}
         </h2>
       </div>
       <Carousel
@@ -122,13 +125,13 @@ const BestSellers = () => {
                   <div className="space-y-2">
                     <p className="text-green-600 flex items-center gap-1">
                       <Euro className="h-4 w-4" />
-                      Meilleur prix: {item.minPrice}€ ({item.bestMarket})
+                      {t('bestSellers.bestPrice')}: {item.minPrice}€ ({item.bestMarket})
                     </p>
                     <p className="text-red-600">
-                      Prix le plus élevé: {item.maxPrice}€ ({item.worstMarket})
+                      {t('bestSellers.highestPrice')}: {item.maxPrice}€ ({item.worstMarket})
                     </p>
                     <p className="font-semibold text-amazon-orange">
-                      Économie potentielle: {item.difference}€
+                      {t('bestSellers.potentialSavings')}: {item.difference}€
                     </p>
                   </div>
                 </div>
