@@ -41,6 +41,8 @@ const SearchBar = () => {
       "Apple Watch"
     ];
 
+    if (!input) return [];
+    
     return commonProducts.filter(product => 
       product.toLowerCase().includes(input.toLowerCase())
     );
@@ -48,9 +50,12 @@ const SearchBar = () => {
 
   useEffect(() => {
     if (query && searchType === "keyword") {
-      setSuggestions(getSuggestions(query));
+      const newSuggestions = getSuggestions(query);
+      setSuggestions(newSuggestions);
+      setOpen(newSuggestions.length > 0);
     } else {
       setSuggestions([]);
+      setOpen(false);
     }
   }, [query, searchType]);
 
@@ -71,7 +76,7 @@ const SearchBar = () => {
   return (
     <form onSubmit={handleSearch} className="search-container p-8 rounded-xl">
       <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">
-        Comparez les prix Amazon en Europe
+        {t('search.title')}
       </h2>
       <div className="flex flex-col gap-4">
         <div className="flex justify-center gap-4 text-white">
@@ -97,7 +102,7 @@ const SearchBar = () => {
           </label>
         </div>
         <div className="relative">
-          <Popover open={open && searchType === "keyword"} onOpenChange={setOpen}>
+          <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
               <div className="relative">
                 <Input
@@ -120,25 +125,27 @@ const SearchBar = () => {
                 </Button>
               </div>
             </PopoverTrigger>
-            <PopoverContent className="p-0" align="start">
-              <Command>
-                <CommandList>
-                  <CommandGroup>
-                    {suggestions.map((suggestion) => (
-                      <CommandItem
-                        key={suggestion}
-                        onSelect={() => {
-                          setQuery(suggestion);
-                          setOpen(false);
-                        }}
-                      >
-                        {suggestion}
-                      </CommandItem>
-                    ))}
-                  </CommandGroup>
-                </CommandList>
-              </Command>
-            </PopoverContent>
+            {suggestions.length > 0 && (
+              <PopoverContent className="p-0 w-[400px]" align="start">
+                <Command>
+                  <CommandList>
+                    <CommandGroup>
+                      {suggestions.map((suggestion) => (
+                        <CommandItem
+                          key={suggestion}
+                          onSelect={() => {
+                            setQuery(suggestion);
+                            setOpen(false);
+                          }}
+                        >
+                          {suggestion}
+                        </CommandItem>
+                      ))}
+                    </CommandGroup>
+                  </CommandList>
+                </Command>
+              </PopoverContent>
+            )}
           </Popover>
         </div>
         <p className="text-white/80 text-sm text-center">
