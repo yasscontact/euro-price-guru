@@ -18,6 +18,36 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
+// Liste étendue de produits pour les suggestions
+const allProducts = [
+  // Smartphones
+  "iPhone 15", "iPhone 15 Pro", "iPhone 15 Pro Max", "iPhone 14", "iPhone 14 Pro",
+  "Samsung Galaxy S24", "Samsung Galaxy S24 Ultra", "Samsung Galaxy S23", 
+  "Samsung Galaxy A54", "Google Pixel 8", "Google Pixel 8 Pro",
+  "OnePlus 12", "Xiaomi 14 Pro", "Nothing Phone 2",
+  
+  // Consoles & Gaming
+  "PlayStation 5", "PlayStation 5 Digital", "PlayStation 4", "PlayStation 4 Pro",
+  "Xbox Series X", "Xbox Series S", "Nintendo Switch", "Nintendo Switch OLED",
+  "Nintendo Switch Lite", "Steam Deck", "ROG Ally",
+  
+  // Audio
+  "AirPods Pro", "AirPods Max", "AirPods 3", "Sony WH-1000XM5", 
+  "Sony WF-1000XM5", "Bose QuietComfort Ultra", "Bose QuietComfort Earbuds II",
+  "Samsung Galaxy Buds 2 Pro", "Jabra Elite 10", "Sennheiser Momentum 4",
+  
+  // Ordinateurs & Tablettes
+  "MacBook Pro 14", "MacBook Pro 16", "MacBook Air M2", "MacBook Air M3",
+  "iPad Pro 12.9", "iPad Pro 11", "iPad Air", "iPad Mini",
+  "Surface Pro 9", "Surface Laptop 5", "Dell XPS 13", "Dell XPS 15",
+  "Lenovo ThinkPad X1", "ASUS ROG Zephyrus",
+  
+  // Montres connectées
+  "Apple Watch Series 9", "Apple Watch Ultra 2", "Samsung Galaxy Watch 6",
+  "Samsung Galaxy Watch 6 Classic", "Google Pixel Watch 2",
+  "Garmin Fenix 7", "Garmin Epix Pro", "Fitbit Sense 2"
+];
+
 const SearchBar = () => {
   const [query, setQuery] = useState("");
   const [searchType, setSearchType] = useState<"asin" | "keyword">("keyword");
@@ -26,30 +56,18 @@ const SearchBar = () => {
   const { toast } = useToast();
   const { t } = useTranslation();
 
-  // Simulated suggestions - in a real app, this would come from an API
   const getSuggestions = (input: string) => {
-    const commonProducts = [
-      "PlayStation 5",
-      "PlayStation 4",
-      "Xbox Series X",
-      "Nintendo Switch",
-      "AirPods Pro",
-      "iPhone 15",
-      "Samsung Galaxy S24",
-      "MacBook Pro",
-      "iPad Air",
-      "Apple Watch"
-    ];
-
-    if (!input) return [];
+    if (!input || input.length < 2) return [];
     
-    return commonProducts.filter(product => 
-      product.toLowerCase().includes(input.toLowerCase())
+    const normalizedInput = input.toLowerCase().trim();
+    return allProducts.filter(product => 
+      product.toLowerCase().includes(normalizedInput)
     );
   };
 
+  // Mise à jour des suggestions en temps réel
   useEffect(() => {
-    if (query && searchType === "keyword") {
+    if (searchType === "keyword") {
       const newSuggestions = getSuggestions(query);
       setSuggestions(newSuggestions);
       setOpen(newSuggestions.length > 0);
@@ -63,13 +81,12 @@ const SearchBar = () => {
     e.preventDefault();
     if (!query.trim()) {
       toast({
-        title: "Erreur",
-        description: "Veuillez entrer un terme de recherche",
+        title: t('search.error'),
+        description: t('search.errorDescription'),
         variant: "destructive",
       });
       return;
     }
-    // TODO: Implement search logic
     console.log("Searching for:", query, "Type:", searchType);
   };
 
