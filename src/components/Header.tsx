@@ -1,6 +1,5 @@
-import { ShoppingCart, Globe, Coins, Check, ChevronDown } from "lucide-react";
+import { ShoppingCart, Globe, Coins } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import {
   Select,
   SelectContent,
@@ -8,18 +7,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { useState } from "react";
-import { Button } from "./ui/button";
 
 const Header = () => {
-  const { i18n } = useTranslation();
-  
   const countries = [
     { code: "FR", name: "France" },
     { code: "DE", name: "Germany" },
@@ -42,25 +31,6 @@ const Header = () => {
     { code: "es", name: "Español" }
   ];
 
-  const [selectedCountries, setSelectedCountries] = useState<string[]>(
-    countries.map(country => country.code)
-  );
-
-  const toggleCountry = (countryCode: string, e: Event) => {
-    e.preventDefault();
-    setSelectedCountries((current) => {
-      if (current.includes(countryCode)) {
-        if (current.length === 1) return current;
-        return current.filter((code) => code !== countryCode);
-      }
-      return [...current, countryCode];
-    });
-  };
-
-  const handleLanguageChange = (langCode: string) => {
-    i18n.changeLanguage(langCode);
-  };
-
   return (
     <header className="bg-amazon-dark py-4 px-6 shadow-md">
       <div className="container mx-auto flex items-center justify-between">
@@ -72,25 +42,18 @@ const Header = () => {
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <Globe className="h-5 w-5 text-gray-300" />
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="w-[140px] bg-transparent text-white border-gray-600">
-                  Pays ({selectedCountries.length}) <ChevronDown className="ml-2 h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-[200px]">
+            <Select defaultValue="FR">
+              <SelectTrigger className="w-[140px] bg-transparent text-white border-gray-600">
+                <SelectValue placeholder="Select country" />
+              </SelectTrigger>
+              <SelectContent>
                 {countries.map((country) => (
-                  <DropdownMenuCheckboxItem
-                    key={country.code}
-                    checked={selectedCountries.includes(country.code)}
-                    onSelect={(e) => e.preventDefault()}
-                    onCheckedChange={(checked) => toggleCountry(country.code, checked)}
-                  >
+                  <SelectItem key={country.code} value={country.code}>
                     {country.name}
-                  </DropdownMenuCheckboxItem>
+                  </SelectItem>
                 ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+              </SelectContent>
+            </Select>
           </div>
 
           <div className="flex items-center gap-2">
@@ -109,7 +72,7 @@ const Header = () => {
             </Select>
           </div>
 
-          <Select defaultValue="fr" onValueChange={handleLanguageChange}>
+          <Select defaultValue="fr">
             <SelectTrigger className="w-[120px] bg-transparent text-white border-gray-600">
               <SelectValue placeholder="Language" />
             </SelectTrigger>

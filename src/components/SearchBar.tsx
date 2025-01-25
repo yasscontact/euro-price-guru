@@ -1,58 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
-import { useTranslation } from "react-i18next";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
   const [searchType, setSearchType] = useState<"asin" | "keyword">("keyword");
-  const [open, setOpen] = useState(false);
-  const [suggestions, setSuggestions] = useState<string[]>([]);
   const { toast } = useToast();
-  const { t } = useTranslation();
-
-  // Simulated suggestions - in a real app, this would come from an API
-  const getSuggestions = (input: string) => {
-    const commonProducts = [
-      "PlayStation 5",
-      "PlayStation 4",
-      "Xbox Series X",
-      "Nintendo Switch",
-      "AirPods Pro",
-      "iPhone 15",
-      "Samsung Galaxy S24",
-      "MacBook Pro",
-      "iPad Air",
-      "Apple Watch"
-    ];
-
-    return commonProducts.filter(product => 
-      product.toLowerCase().includes(input.toLowerCase())
-    );
-  };
-
-  useEffect(() => {
-    if (query && searchType === "keyword") {
-      setSuggestions(getSuggestions(query));
-    } else {
-      setSuggestions([]);
-    }
-  }, [query, searchType]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -83,7 +38,7 @@ const SearchBar = () => {
               onChange={() => setSearchType("keyword")}
               className="text-amazon-orange focus:ring-amazon-orange"
             />
-            {t('search.byKeyword')}
+            Recherche par mots-clés
           </label>
           <label className="flex items-center gap-2">
             <input
@@ -93,56 +48,35 @@ const SearchBar = () => {
               onChange={() => setSearchType("asin")}
               className="text-amazon-orange focus:ring-amazon-orange"
             />
-            {t('search.byAsin')}
+            Recherche par ASIN
           </label>
         </div>
         <div className="relative">
-          <Popover open={open && searchType === "keyword"} onOpenChange={setOpen}>
-            <PopoverTrigger asChild>
-              <div className="relative">
-                <Input
-                  type="text"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  placeholder={
-                    searchType === "keyword"
-                      ? t('search.placeholder')
-                      : t('search.asinPlaceholder')
-                  }
-                  className="search-input pr-12"
-                />
-                <Button
-                  type="submit"
-                  size="icon"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-amazon-orange hover:bg-amazon-light"
-                >
-                  <Search className="h-5 w-5" />
-                </Button>
-              </div>
-            </PopoverTrigger>
-            <PopoverContent className="p-0" align="start">
-              <Command>
-                <CommandList>
-                  <CommandGroup>
-                    {suggestions.map((suggestion) => (
-                      <CommandItem
-                        key={suggestion}
-                        onSelect={() => {
-                          setQuery(suggestion);
-                          setOpen(false);
-                        }}
-                      >
-                        {suggestion}
-                      </CommandItem>
-                    ))}
-                  </CommandGroup>
-                </CommandList>
-              </Command>
-            </PopoverContent>
-          </Popover>
+          <Input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder={
+              searchType === "keyword"
+                ? "Rechercher un produit..."
+                : "Entrez un ASIN ou collez une URL Amazon..."
+            }
+            className="search-input pr-12"
+          />
+          <Button
+            type="submit"
+            size="icon"
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-amazon-orange hover:bg-amazon-light"
+          >
+            <Search className="h-5 w-5" />
+          </Button>
         </div>
         <p className="text-white/80 text-sm text-center">
-          {searchType === "asin" ? t('search.asinExample') : t('search.example')}
+          {searchType === "asin" ? (
+            <>Exemple: B07PZR3PVB ou https://www.amazon.fr/dp/B07PZR3PVB</>
+          ) : (
+            <>Exemple: PlayStation 5, AirPods Pro</>
+          )}
         </p>
       </div>
     </form>
