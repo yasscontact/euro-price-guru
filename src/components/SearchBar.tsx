@@ -18,36 +18,6 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-// Liste étendue de produits pour les suggestions
-const allProducts = [
-  // Smartphones
-  "iPhone 15", "iPhone 15 Pro", "iPhone 15 Pro Max", "iPhone 14", "iPhone 14 Pro",
-  "Samsung Galaxy S24", "Samsung Galaxy S24 Ultra", "Samsung Galaxy S23", 
-  "Samsung Galaxy A54", "Google Pixel 8", "Google Pixel 8 Pro",
-  "OnePlus 12", "Xiaomi 14 Pro", "Nothing Phone 2",
-  
-  // Consoles & Gaming
-  "PlayStation 5", "PlayStation 5 Digital", "PlayStation 4", "PlayStation 4 Pro",
-  "Xbox Series X", "Xbox Series S", "Nintendo Switch", "Nintendo Switch OLED",
-  "Nintendo Switch Lite", "Steam Deck", "ROG Ally",
-  
-  // Audio
-  "AirPods Pro", "AirPods Max", "AirPods 3", "Sony WH-1000XM5", 
-  "Sony WF-1000XM5", "Bose QuietComfort Ultra", "Bose QuietComfort Earbuds II",
-  "Samsung Galaxy Buds 2 Pro", "Jabra Elite 10", "Sennheiser Momentum 4",
-  
-  // Ordinateurs & Tablettes
-  "MacBook Pro 14", "MacBook Pro 16", "MacBook Air M2", "MacBook Air M3",
-  "iPad Pro 12.9", "iPad Pro 11", "iPad Air", "iPad Mini",
-  "Surface Pro 9", "Surface Laptop 5", "Dell XPS 13", "Dell XPS 15",
-  "Lenovo ThinkPad X1", "ASUS ROG Zephyrus",
-  
-  // Montres connectées
-  "Apple Watch Series 9", "Apple Watch Ultra 2", "Samsung Galaxy Watch 6",
-  "Samsung Galaxy Watch 6 Classic", "Google Pixel Watch 2",
-  "Garmin Fenix 7", "Garmin Epix Pro", "Fitbit Sense 2"
-];
-
 const SearchBar = () => {
   const [query, setQuery] = useState("");
   const [searchType, setSearchType] = useState<"asin" | "keyword">("keyword");
@@ -56,24 +26,31 @@ const SearchBar = () => {
   const { toast } = useToast();
   const { t } = useTranslation();
 
+  // Simulated suggestions - in a real app, this would come from an API
   const getSuggestions = (input: string) => {
-    if (!input || input.length < 2) return [];
-    
-    const normalizedInput = input.toLowerCase().trim();
-    return allProducts.filter(product => 
-      product.toLowerCase().includes(normalizedInput)
+    const commonProducts = [
+      "PlayStation 5",
+      "PlayStation 4",
+      "Xbox Series X",
+      "Nintendo Switch",
+      "AirPods Pro",
+      "iPhone 15",
+      "Samsung Galaxy S24",
+      "MacBook Pro",
+      "iPad Air",
+      "Apple Watch"
+    ];
+
+    return commonProducts.filter(product => 
+      product.toLowerCase().includes(input.toLowerCase())
     );
   };
 
-  // Mise à jour des suggestions en temps réel
   useEffect(() => {
-    if (searchType === "keyword") {
-      const newSuggestions = getSuggestions(query);
-      setSuggestions(newSuggestions);
-      setOpen(newSuggestions.length > 0);
+    if (query && searchType === "keyword") {
+      setSuggestions(getSuggestions(query));
     } else {
       setSuggestions([]);
-      setOpen(false);
     }
   }, [query, searchType]);
 
@@ -81,19 +58,20 @@ const SearchBar = () => {
     e.preventDefault();
     if (!query.trim()) {
       toast({
-        title: t('search.error'),
-        description: t('search.errorDescription'),
+        title: "Erreur",
+        description: "Veuillez entrer un terme de recherche",
         variant: "destructive",
       });
       return;
     }
+    // TODO: Implement search logic
     console.log("Searching for:", query, "Type:", searchType);
   };
 
   return (
     <form onSubmit={handleSearch} className="search-container p-8 rounded-xl">
       <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">
-        {t('search.title')}
+        Comparez les prix Amazon en Europe
       </h2>
       <div className="flex flex-col gap-4">
         <div className="flex justify-center gap-4 text-white">
@@ -119,7 +97,7 @@ const SearchBar = () => {
           </label>
         </div>
         <div className="relative">
-          <Popover open={open} onOpenChange={setOpen}>
+          <Popover open={open && searchType === "keyword"} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
               <div className="relative">
                 <Input
@@ -142,27 +120,25 @@ const SearchBar = () => {
                 </Button>
               </div>
             </PopoverTrigger>
-            {suggestions.length > 0 && (
-              <PopoverContent className="p-0 w-[400px]" align="start">
-                <Command>
-                  <CommandList>
-                    <CommandGroup>
-                      {suggestions.map((suggestion) => (
-                        <CommandItem
-                          key={suggestion}
-                          onSelect={() => {
-                            setQuery(suggestion);
-                            setOpen(false);
-                          }}
-                        >
-                          {suggestion}
-                        </CommandItem>
-                      ))}
-                    </CommandGroup>
-                  </CommandList>
-                </Command>
-              </PopoverContent>
-            )}
+            <PopoverContent className="p-0" align="start">
+              <Command>
+                <CommandList>
+                  <CommandGroup>
+                    {suggestions.map((suggestion) => (
+                      <CommandItem
+                        key={suggestion}
+                        onSelect={() => {
+                          setQuery(suggestion);
+                          setOpen(false);
+                        }}
+                      >
+                        {suggestion}
+                      </CommandItem>
+                    ))}
+                  </CommandGroup>
+                </CommandList>
+              </Command>
+            </PopoverContent>
           </Popover>
         </div>
         <p className="text-white/80 text-sm text-center">
