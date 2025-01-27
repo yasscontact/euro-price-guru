@@ -10,13 +10,14 @@ import {
 const mockBestSellers = [
   {
     id: 1,
-    title: "PlayStation 5",
-    image: "https://via.placeholder.com/200",
-    minPrice: 449.99,
-    maxPrice: 549.99,
-    difference: 100,
+    title: "Ampoule connectée TP-Link Tapo L530E",
+    image: "/lovable-uploads/182fce56-6aae-42f3-835f-659d31edaaae.png",
+    minPrice: 14.99,
+    maxPrice: 24.99,
+    difference: 10,
     bestMarket: "Allemagne",
     worstMarket: "France",
+    link: "https://amzn.to/3PPMnme"
   },
   {
     id: 2,
@@ -71,11 +72,14 @@ const BestSellers = () => {
               key={item.id}
               className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3"
             >
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200 h-full">
+              <div 
+                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200 h-full cursor-pointer"
+                onClick={() => item.link && window.open(item.link, '_blank')}
+              >
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-contain"
                 />
                 <div className="p-4">
                   <h3 className="font-bold text-lg mb-2">{item.title}</h3>
@@ -83,9 +87,6 @@ const BestSellers = () => {
                     <p className="text-green-600 flex items-center gap-1">
                       <Euro className="h-4 w-4" />
                       Meilleur prix: {item.minPrice}€ ({item.bestMarket})
-                    </p>
-                    <p className="text-red-600">
-                      Prix le plus élevé: {item.maxPrice}€ ({item.worstMarket})
                     </p>
                     <p className="font-semibold text-amazon-orange">
                       Économie potentielle: {item.difference}€
