@@ -21,34 +21,26 @@ const mockBestSellers = [
   },
   {
     id: 2,
-    title: "Apple AirPods Pro",
-    image: "https://via.placeholder.com/200",
-    minPrice: 219.99,
-    maxPrice: 279.99,
-    difference: 60,
+    title: "Batterie Externe 26800mAh",
+    image: "/lovable-uploads/4c092d2e-1ac5-4e3d-927a-368765a44aac.png",
+    minPrice: 18.99,
+    maxPrice: 29.99,
+    difference: 11,
     bestMarket: "Espagne",
-    worstMarket: "Italie",
+    worstMarket: "France",
+    link: "https://amzn.to/42BLIfM"
   },
   {
     id: 3,
-    title: "Nintendo Switch OLED",
-    image: "https://via.placeholder.com/200",
-    minPrice: 329.99,
-    maxPrice: 369.99,
-    difference: 40,
-    bestMarket: "France",
-    worstMarket: "Allemagne",
-  },
-  {
-    id: 4,
-    title: "MacBook Air M2",
-    image: "https://via.placeholder.com/200",
-    minPrice: 1099.99,
-    maxPrice: 1299.99,
-    difference: 200,
-    bestMarket: "Espagne",
+    title: "Trousse de Toilette",
+    image: "/lovable-uploads/178423b1-a7dc-436a-b342-a6483cc76fd2.png",
+    minPrice: 8.99,
+    maxPrice: 15.99,
+    difference: 7,
+    bestMarket: "Allemagne",
     worstMarket: "France",
-  },
+    link: "https://amzn.to/4jpCKZ8"
+  }
 ];
 
 const BestSellers = () => {
