@@ -15,7 +15,7 @@ const mockBestSellers = [
     minPrice: 14.99,
     maxPrice: 24.99,
     difference: 10,
-    bestMarket: "Allemagne",
+    bestMarket: "France",
     worstMarket: "France",
     link: "https://amzn.to/3PPMnme"
   },
@@ -26,7 +26,7 @@ const mockBestSellers = [
     minPrice: 18.99,
     maxPrice: 29.99,
     difference: 11,
-    bestMarket: "Espagne",
+    bestMarket: "France",
     worstMarket: "France",
     link: "https://amzn.to/42BLIfM"
   },
@@ -37,7 +37,7 @@ const mockBestSellers = [
     minPrice: 8.99,
     maxPrice: 15.99,
     difference: 7,
-    bestMarket: "Allemagne",
+    bestMarket: "France",
     worstMarket: "France",
     link: "https://amzn.to/4jpCKZ8"
   }
@@ -47,9 +47,14 @@ const BestSellers = () => {
   return (
     <div className="mt-12">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-amazon-dark">
-          Meilleures opportunités d'économies
-        </h2>
+        <div>
+          <h2 className="text-2xl font-bold text-amazon-dark">
+            Meilleures opportunités d'économies
+          </h2>
+          <p className="text-xs italic mt-1">
+            En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises
+          </p>
+        </div>
       </div>
       <Carousel
         opts={{
@@ -78,10 +83,7 @@ const BestSellers = () => {
                   <div className="space-y-2">
                     <p className="text-green-600 flex items-center gap-1">
                       <Euro className="h-4 w-4" />
-                      Meilleur prix: {item.minPrice}€ ({item.bestMarket})
-                    </p>
-                    <p className="font-semibold text-amazon-orange">
-                      Économie potentielle: {item.difference}€
+                      Prix: {item.minPrice}€ ({item.bestMarket})
                     </p>
                   </div>
                 </div>
