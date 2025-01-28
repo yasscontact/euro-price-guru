@@ -10,9 +10,10 @@ import {
 
 interface HeaderProps {
   hideSelectors?: boolean;
+  showLanguageOnly?: boolean;
 }
 
-const Header = ({ hideSelectors = false }: HeaderProps) => {
+const Header = ({ hideSelectors = false, showLanguageOnly = false }: HeaderProps) => {
   const countries = [
     { code: "FR", name: "France" },
     { code: "DE", name: "Germany" },
@@ -77,6 +78,23 @@ const Header = ({ hideSelectors = false }: HeaderProps) => {
               </Select>
             </div>
 
+            <Select defaultValue="fr">
+              <SelectTrigger className="w-[120px] bg-transparent text-white border-gray-600">
+                <SelectValue placeholder="Language" />
+              </SelectTrigger>
+              <SelectContent>
+                {languages.map((language) => (
+                  <SelectItem key={language.code} value={language.code}>
+                    {language.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        )}
+
+        {showLanguageOnly && (
+          <div className="flex items-center gap-4">
             <Select defaultValue="fr">
               <SelectTrigger className="w-[120px] bg-transparent text-white border-gray-600">
                 <SelectValue placeholder="Language" />

@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 const Terms = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-      <Header hideSelectors={true} />
+      <Header hideSelectors={true} showLanguageOnly={true} />
       <div className="flex-grow container mx-auto px-4 py-8 space-y-6">
         <h1 className="text-2xl font-bold mb-6">Conditions d'utilisation</h1>
         
