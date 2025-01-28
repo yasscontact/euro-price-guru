@@ -8,7 +8,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const Header = () => {
+interface HeaderProps {
+  hideSelectors?: boolean;
+}
+
+const Header = ({ hideSelectors = false }: HeaderProps) => {
   const countries = [
     { code: "FR", name: "France" },
     { code: "DE", name: "Germany" },
@@ -39,52 +43,54 @@ const Header = () => {
           <span className="text-2xl font-bold text-white">EuroPriceGuru</span>
         </Link>
 
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2">
-            <Globe className="h-5 w-5 text-gray-300" />
-            <Select defaultValue="FR">
-              <SelectTrigger className="w-[140px] bg-transparent text-white border-gray-600">
-                <SelectValue placeholder="Select country" />
+        {!hideSelectors && (
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <Globe className="h-5 w-5 text-gray-300" />
+              <Select defaultValue="FR">
+                <SelectTrigger className="w-[140px] bg-transparent text-white border-gray-600">
+                  <SelectValue placeholder="Select country" />
+                </SelectTrigger>
+                <SelectContent>
+                  {countries.map((country) => (
+                    <SelectItem key={country.code} value={country.code}>
+                      {country.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Coins className="h-5 w-5 text-gray-300" />
+              <Select defaultValue="EUR">
+                <SelectTrigger className="w-[100px] bg-transparent text-white border-gray-600">
+                  <SelectValue placeholder="Currency" />
+                </SelectTrigger>
+                <SelectContent>
+                  {currencies.map((currency) => (
+                    <SelectItem key={currency.code} value={currency.code}>
+                      {currency.code} ({currency.symbol})
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            <Select defaultValue="fr">
+              <SelectTrigger className="w-[120px] bg-transparent text-white border-gray-600">
+                <SelectValue placeholder="Language" />
               </SelectTrigger>
               <SelectContent>
-                {countries.map((country) => (
-                  <SelectItem key={country.code} value={country.code}>
-                    {country.name}
+                {languages.map((language) => (
+                  <SelectItem key={language.code} value={language.code}>
+                    {language.name}
                   </SelectItem>
                 ))}
               </SelectContent>
             </Select>
           </div>
-
-          <div className="flex items-center gap-2">
-            <Coins className="h-5 w-5 text-gray-300" />
-            <Select defaultValue="EUR">
-              <SelectTrigger className="w-[100px] bg-transparent text-white border-gray-600">
-                <SelectValue placeholder="Currency" />
-              </SelectTrigger>
-              <SelectContent>
-                {currencies.map((currency) => (
-                  <SelectItem key={currency.code} value={currency.code}>
-                    {currency.code} ({currency.symbol})
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-
-          <Select defaultValue="fr">
-            <SelectTrigger className="w-[120px] bg-transparent text-white border-gray-600">
-              <SelectValue placeholder="Language" />
-            </SelectTrigger>
-            <SelectContent>
-              {languages.map((language) => (
-                <SelectItem key={language.code} value={language.code}>
-                  {language.name}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+        )}
       </div>
     </header>
   );
