@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import HowItWorks from "./pages/HowItWorks";
+import "./i18n";
 
 const queryClient = new QueryClient();
 

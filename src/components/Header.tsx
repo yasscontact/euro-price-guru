@@ -1,5 +1,6 @@
 import { ShoppingCart, Globe, Coins } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   Select,
   SelectContent,
@@ -14,6 +15,8 @@ interface HeaderProps {
 }
 
 const Header = ({ hideSelectors = false, showLanguageOnly = false }: HeaderProps) => {
+  const { i18n } = useTranslation();
+
   const countries = [
     { code: "FR", name: "France" },
     { code: "DE", name: "Germany" },
@@ -35,6 +38,10 @@ const Header = ({ hideSelectors = false, showLanguageOnly = false }: HeaderProps
     { code: "it", name: "Italiano" },
     { code: "es", name: "Español" }
   ];
+
+  const handleLanguageChange = (value: string) => {
+    i18n.changeLanguage(value);
+  };
 
   return (
     <header className="bg-amazon-dark py-4 px-6 shadow-md">
@@ -78,7 +85,7 @@ const Header = ({ hideSelectors = false, showLanguageOnly = false }: HeaderProps
               </Select>
             </div>
 
-            <Select defaultValue="fr">
+            <Select defaultValue={i18n.language} onValueChange={handleLanguageChange}>
               <SelectTrigger className="w-[120px] bg-transparent text-white border-gray-600">
                 <SelectValue placeholder="Language" />
               </SelectTrigger>
@@ -95,7 +102,7 @@ const Header = ({ hideSelectors = false, showLanguageOnly = false }: HeaderProps
 
         {showLanguageOnly && (
           <div className="flex items-center gap-4">
-            <Select defaultValue="fr">
+            <Select defaultValue={i18n.language} onValueChange={handleLanguageChange}>
               <SelectTrigger className="w-[120px] bg-transparent text-white border-gray-600">
                 <SelectValue placeholder="Language" />
               </SelectTrigger>
