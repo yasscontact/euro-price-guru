@@ -1,6 +1,7 @@
 import { ShoppingCart, Globe, Coins } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useCurrency } from "@/contexts/CurrencyContext";
 import {
   Select,
   SelectContent,
@@ -16,6 +17,7 @@ interface HeaderProps {
 
 const Header = ({ hideSelectors = false, showLanguageOnly = false }: HeaderProps) => {
   const { i18n } = useTranslation();
+  const { currency, setCurrency } = useCurrency();
 
   const countries = [
     { code: "FR", name: "France" },
@@ -71,7 +73,7 @@ const Header = ({ hideSelectors = false, showLanguageOnly = false }: HeaderProps
 
             <div className="flex items-center gap-2">
               <Coins className="h-5 w-5 text-gray-300" />
-              <Select defaultValue="EUR">
+              <Select value={currency} onValueChange={setCurrency}>
                 <SelectTrigger className="w-[100px] bg-transparent text-white border-gray-600">
                   <SelectValue placeholder="Currency" />
                 </SelectTrigger>

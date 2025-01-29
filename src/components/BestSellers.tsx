@@ -1,4 +1,6 @@
 import { Euro } from "lucide-react";
+import { useExchangeRates } from "@/hooks/useExchangeRates";
+import { useCurrency } from "@/contexts/CurrencyContext";
 import {
   Carousel,
   CarouselContent,
@@ -44,6 +46,21 @@ const mockBestSellers = [
 ];
 
 const BestSellers = () => {
+  const { data: exchangeRates } = useExchangeRates();
+  const { currency } = useCurrency();
+
+  const formatPrice = (price: number) => {
+    if (!exchangeRates || !exchangeRates.rates) return price;
+    
+    const rate = exchangeRates.rates[currency] || 1;
+    const convertedPrice = price * rate;
+    
+    return new Intl.NumberFormat('fr-FR', {
+      style: 'currency',
+      currency: currency
+    }).format(convertedPrice);
+  };
+
   return (
     <div className="mt-12">
       <div className="flex justify-between items-center mb-6">
@@ -83,7 +100,7 @@ const BestSellers = () => {
                   <div className="space-y-2">
                     <p className="text-green-600 flex items-center gap-1">
                       <Euro className="h-4 w-4" />
-                      Prix: {item.minPrice}€ ({item.bestMarket})
+                      Prix: {formatPrice(item.minPrice)} ({item.bestMarket})
                     </p>
                   </div>
                 </div>
