@@ -68,12 +68,21 @@ const resources = {
       // How it works
       "howItWorksTitle": "Comment fonctionne Euro Price Guru ?",
       "howItWorksIntro": "Euro Price Guru vous aide à trouver les meilleurs prix pour les produits Amazon dans toute l'Europe. Voici comment :",
-      "step1Title": "Recherchez un produit",
-      "step1Text": "Entrez le nom du produit ou son ASIN (numéro d'identification Amazon)",
-      "step2Title": "Comparez les prix",
-      "step2Text": "Nous recherchons le produit sur tous les sites Amazon européens",
-      "step3Title": "Économisez",
-      "step3Text": "Choisissez le meilleur prix et achetez directement sur Amazon"
+      "howItWorksSearch": "Recherchez un produit : Commencez par saisir le nom du produit que vous recherchez dans la barre de recherche. Soyez aussi précis que possible pour obtenir les résultats les plus pertinents.",
+      "howItWorksCompare": "Comparez les prix : Nous affichons les prix du produit sur les différents sites Amazon européens (Amazon.fr, Amazon.de, Amazon.it, Amazon.es, etc.). Les prix sont convertis dans une devise commune (ex: Euro) pour faciliter la comparaison. Les frais de livraison et les taxes éventuelles sont également pris en compte dans la mesure du possible.",
+      "howItWorksChoose": "Choisissez le meilleur prix : Sélectionnez l'offre qui vous convient le mieux en fonction du prix total, des délais de livraison et des conditions de vente.",
+      "howItWorksRedirect": "Redirection vers Amazon : En cliquant sur le lien du produit, vous serez redirigé vers la page correspondante sur le site Amazon du pays sélectionné. Vous pourrez finaliser votre achat directement sur Amazon.",
+      "howItWorksRevenue": "Notre rémunération : Euro Price Guru utilise des liens d'affiliation Amazon. Cela signifie que nous recevons une petite commission si vous effectuez un achat après avoir cliqué sur l'un de nos liens. Ce système ne vous coûte rien de plus et nous permet de maintenir et d'améliorer notre service.",
+      "howItWorksTipsTitle": "Conseils pour utiliser Euro Price Guru :",
+      "howItWorksTips1": "Soyez précis dans vos recherches : Plus votre recherche est précise, plus les résultats seront pertinents.",
+      "howItWorksTips2": "Vérifiez les frais de livraison : Les frais de livraison peuvent varier considérablement d'un pays à l'autre. Assurez-vous de les prendre en compte dans votre comparaison.",
+      "howItWorksTips3": "Lisez les conditions de vente : Avant de finaliser votre achat, lisez attentivement les conditions de vente sur le site Amazon concerné.",
+      "howItWorksTips4": "N'hésitez pas à nous contacter : Si vous avez des questions ou des suggestions, n'hésitez pas à nous contacter.",
+      "howItWorksHighlightsTitle": "Points forts d'Euro Price Guru :",
+      "howItWorksHighlights1": "Gain de temps : Comparez les prix sur plusieurs sites Amazon en quelques clics.",
+      "howItWorksHighlights2": "Économies : Trouvez les meilleures offres et économisez sur vos achats.",
+      "howItWorksHighlights3": "Simplicité : Une interface facile à utiliser pour une comparaison rapide et efficace.",
+      "howItWorksHighlights4": "Transparence : Nous sommes clairs sur notre utilisation des liens d'affiliation."
     }
   },
   en: {
@@ -142,12 +151,21 @@ const resources = {
       // How it works
       "howItWorksTitle": "How does Euro Price Guru work?",
       "howItWorksIntro": "Euro Price Guru helps you find the best prices for Amazon products across Europe. Here's how:",
-      "step1Title": "Search for a product",
-      "step1Text": "Enter the product name or its ASIN (Amazon identification number)",
-      "step2Title": "Compare prices",
-      "step2Text": "We search for the product across all European Amazon sites",
-      "step3Title": "Save money",
-      "step3Text": "Choose the best price and buy directly from Amazon"
+      "howItWorksSearch": "Search for a product: Start by entering the name of the product you're looking for in the search bar. Be as specific as possible to get the most relevant results.",
+      "howItWorksCompare": "Compare prices: We display product prices across different European Amazon sites (Amazon.fr, Amazon.de, Amazon.it, Amazon.es, etc.). Prices are converted to a common currency (e.g., Euro) for easy comparison. Shipping fees and potential taxes are also taken into account when possible.",
+      "howItWorksChoose": "Choose the best price: Select the offer that suits you best based on total price, delivery times, and terms of sale.",
+      "howItWorksRedirect": "Redirect to Amazon: By clicking on the product link, you will be redirected to the corresponding page on the selected country's Amazon site. You can complete your purchase directly on Amazon.",
+      "howItWorksRevenue": "Our revenue: Euro Price Guru uses Amazon affiliate links. This means we receive a small commission if you make a purchase after clicking on one of our links. This system costs you nothing extra and allows us to maintain and improve our service.",
+      "howItWorksTipsTitle": "Tips for using Euro Price Guru:",
+      "howItWorksTips1": "Be specific in your searches: The more precise your search, the more relevant the results will be.",
+      "howItWorksTips2": "Check shipping fees: Shipping fees can vary significantly from country to country. Make sure to take them into account in your comparison.",
+      "howItWorksTips3": "Read the terms of sale: Before finalizing your purchase, carefully read the terms of sale on the relevant Amazon site.",
+      "howItWorksTips4": "Don't hesitate to contact us: If you have any questions or suggestions, don't hesitate to contact us.",
+      "howItWorksHighlightsTitle": "Euro Price Guru's strengths:",
+      "howItWorksHighlights1": "Time-saving: Compare prices across multiple Amazon sites in just a few clicks.",
+      "howItWorksHighlights2": "Savings: Find the best deals and save on your purchases.",
+      "howItWorksHighlights3": "Simplicity: An easy-to-use interface for quick and efficient comparison.",
+      "howItWorksHighlights4": "Transparency: We are clear about our use of affiliate links."
     }
   },
   de: {
@@ -216,12 +234,21 @@ const resources = {
       // How it works
       "howItWorksTitle": "Wie funktioniert Euro Price Guru?",
       "howItWorksIntro": "Euro Price Guru hilft Ihnen, die besten Preise für Amazon-Produkte in ganz Europa zu finden. So funktioniert's:",
-      "step1Title": "Produkt suchen",
-      "step1Text": "Geben Sie den Produktnamen oder dessen ASIN (Amazon-Identifikationsnummer) ein",
-      "step2Title": "Preise vergleichen",
-      "step2Text": "Wir suchen das Produkt auf allen europäischen Amazon-Seiten",
-      "step3Title": "Geld sparen",
-      "step3Text": "Wählen Sie den besten Preis und kaufen Sie direkt bei Amazon"
+      "howItWorksSearch": "Produkt suchen: Beginnen Sie mit der Eingabe des gesuchten Produktnamens in die Suchleiste. Seien Sie so genau wie möglich, um die relevantesten Ergebnisse zu erhalten.",
+      "howItWorksCompare": "Preise vergleichen: Wir zeigen Produktpreise auf verschiedenen europäischen Amazon-Seiten an (Amazon.fr, Amazon.de, Amazon.it, Amazon.es, etc.). Die Preise werden in eine gemeinsame Währung (z.B. Euro) umgerechnet, um den Vergleich zu erleichtern. Versandkosten und mögliche Steuern werden nach Möglichkeit ebenfalls berücksichtigt.",
+      "howItWorksChoose": "Besten Preis wählen: Wählen Sie das für Sie beste Angebot basierend auf Gesamtpreis, Lieferzeiten und Verkaufsbedingungen.",
+      "howItWorksRedirect": "Weiterleitung zu Amazon: Durch Klicken auf den Produktlink werden Sie zur entsprechenden Seite auf der Amazon-Seite des ausgewählten Landes weitergeleitet. Sie können Ihren Kauf direkt bei Amazon abschließen.",
+      "howItWorksRevenue": "Unsere Einnahmen: Euro Price Guru verwendet Amazon-Affiliate-Links. Das bedeutet, wir erhalten eine kleine Provision, wenn Sie nach einem Klick auf einen unserer Links einen Kauf tätigen. Dieses System verursacht für Sie keine zusätzlichen Kosten und ermöglicht uns die Wartung und Verbesserung unseres Services.",
+      "howItWorksTipsTitle": "Tipps zur Nutzung von Euro Price Guru:",
+      "howItWorksTips1": "Seien Sie präzise bei der Suche: Je genauer Ihre Suche, desto relevanter die Ergebnisse.",
+      "howItWorksTips2": "Versandkosten prüfen: Versandkosten können von Land zu Land stark variieren. Berücksichtigen Sie diese in Ihrem Vergleich.",
+      "howItWorksTips3": "Verkaufsbedingungen lesen: Lesen Sie vor dem Kauf sorgfältig die Verkaufsbedingungen auf der jeweiligen Amazon-Seite.",
+      "howItWorksTips4": "Kontaktieren Sie uns: Bei Fragen oder Anregungen zögern Sie nicht, uns zu kontaktieren.",
+      "howItWorksHighlightsTitle": "Stärken von Euro Price Guru:",
+      "howItWorksHighlights1": "Zeitsparend: Vergleichen Sie Preise auf mehreren Amazon-Seiten mit wenigen Klicks.",
+      "howItWorksHighlights2": "Sparen: Finden Sie die besten Angebote und sparen Sie bei Ihren Einkäufen.",
+      "howItWorksHighlights3": "Einfachheit: Eine benutzerfreundliche Oberfläche für schnelle und effiziente Vergleiche.",
+      "howItWorksHighlights4": "Transparenz: Wir sind transparent bezüglich unserer Nutzung von Affiliate-Links."
     }
   },
   it: {
@@ -290,12 +317,21 @@ const resources = {
       // How it works
       "howItWorksTitle": "Come funziona Euro Price Guru?",
       "howItWorksIntro": "Euro Price Guru ti aiuta a trovare i migliori prezzi per i prodotti Amazon in tutta Europa. Ecco come:",
-      "step1Title": "Cerca un prodotto",
-      "step1Text": "Inserisci il nome del prodotto o il suo ASIN (numero di identificazione Amazon)",
-      "step2Title": "Confronta i prezzi",
-      "step2Text": "Cerchiamo il prodotto su tutti i siti Amazon europei",
-      "step3Title": "Risparmia",
-      "step3Text": "Scegli il miglior prezzo e acquista direttamente su Amazon"
+      "howItWorksSearch": "Cerca un prodotto: Inizia inserendo il nome del prodotto che stai cercando nella barra di ricerca. Sii il più specifico possibile per ottenere i risultati più pertinenti.",
+      "howItWorksCompare": "Confronta i prezzi: Mostriamo i prezzi dei prodotti sui diversi siti Amazon europei (Amazon.fr, Amazon.de, Amazon.it, Amazon.es, ecc.). I prezzi vengono convertiti in una valuta comune (es: Euro) per facilitare il confronto. Le spese di spedizione e le eventuali tasse vengono prese in considerazione quando possibile.",
+      "howItWorksChoose": "Scegli il miglior prezzo: Seleziona l'offerta più adatta a te in base al prezzo totale, ai tempi di consegna e alle condizioni di vendita.",
+      "howItWorksRedirect": "Reindirizzamento ad Amazon: Cliccando sul link del prodotto, verrai reindirizzato alla pagina corrispondente sul sito Amazon del paese selezionato. Potrai completare l'acquisto direttamente su Amazon.",
+      "howItWorksRevenue": "I nostri guadagni: Euro Price Guru utilizza i link di affiliazione Amazon. Questo significa che riceviamo una piccola commissione se effettui un acquisto dopo aver cliccato su uno dei nostri link. Questo sistema non ti costa nulla in più e ci permette di mantenere e migliorare il nostro servizio.",
+      "howItWorksTipsTitle": "Consigli per utilizzare Euro Price Guru:",
+      "howItWorksTips1": "Sii specifico nelle tue ricerche: Più precisa è la tua ricerca, più pertinenti saranno i risultati.",
+      "howItWorksTips2": "Controlla le spese di spedizione: Le spese di spedizione possono variare notevolmente da paese a paese. Assicurati di tenerle in considerazione nel tuo confronto.",
+      "howItWorksTips3": "Leggi le condizioni di vendita: Prima di finalizzare l'acquisto, leggi attentamente le condizioni di vendita sul sito Amazon pertinente.",
+      "howItWorksTips4": "Non esitare a contattarci: Se hai domande o suggerimenti, non esitare a contattarci.",
+      "howItWorksHighlightsTitle": "Punti di forza di Euro Price Guru:",
+      "howItWorksHighlights1": "Risparmio di tempo: Confronta i prezzi su più siti Amazon in pochi clic.",
+      "howItWorksHighlights2": "Risparmi: Trova le migliori offerte e risparmia sui tuoi acquisti.",
+      "howItWorksHighlights3": "Semplicità: Un'interfaccia facile da usare per un confronto rapido ed efficiente.",
+      "howItWorksHighlights4": "Trasparenza: Siamo chiari sul nostro utilizzo dei link di affiliazione."
     }
   },
   es: {
@@ -363,13 +399,22 @@ const resources = {
 
       // How it works
       "howItWorksTitle": "¿Cómo funciona Euro Price Guru?",
-      "howItWorksIntro": "Euro Price Guru te ayuda a encontrar los mejores precios para productos de Amazon en toda Europa. Así es como funciona:",
-      "step1Title": "Busca un producto",
-      "step1Text": "Introduce el nombre del producto o su ASIN (número de identificación de Amazon)",
-      "step2Title": "Compara precios",
-      "step2Text": "Buscamos el producto en todos los sitios de Amazon europeos",
-      "step3Title": "Ahorra dinero",
-      "step3Text": "Elige el mejor precio y compra directamente en Amazon"
+      "howItWorksIntro": "Euro Price Guru te ayuda a encontrar los mejores precios para productos Amazon en toda Europa. Así es como funciona:",
+      "howItWorksSearch": "Busca un producto: Comienza introduciendo el nombre del producto que buscas en la barra de búsqueda. Sé lo más específico posible para obtener los resultados más relevantes.",
+      "howItWorksCompare": "Compara precios: Mostramos los precios del producto en diferentes sitios de Amazon europeos (Amazon.fr, Amazon.de, Amazon.it, Amazon.es, etc.). Los precios se convierten a una moneda común (ej: Euro) para facilitar la comparación. Los gastos de envío e impuestos potenciales también se tienen en cuenta cuando es posible.",
+      "howItWorksChoose": "Elige el mejor precio: Selecciona la oferta que mejor se adapte a ti según el precio total, los tiempos de entrega y las condiciones de venta.",
+      "howItWorksRedirect": "Redirección a Amazon: Al hacer clic en el enlace del producto, serás redirigido a la página correspondiente en el sitio de Amazon del país seleccionado. Podrás completar tu compra directamente en Amazon.",
+      "howItWorksRevenue": "Nuestros ingresos: Euro Price Guru utiliza enlaces de afiliados de Amazon. Esto significa que recibimos una pequeña comisión si realizas una compra después de hacer clic en uno de nuestros enlaces. Este sistema no te cuesta nada adicional y nos permite mantener y mejorar nuestro servicio.",
+      "howItWorksTipsTitle": "Consejos para usar Euro Price Guru:",
+      "howItWorksTips1": "Sé específico en tus búsquedas: Cuanto más precisa sea tu búsqueda, más relevantes serán los resultados.",
+      "howItWorksTips2": "Verifica los gastos de envío: Los gastos de envío pueden variar significativamente de un país a otro. Asegúrate de tenerlos en cuenta en tu comparación.",
+      "howItWorksTips3": "Lee las condiciones de venta: Antes de finalizar tu compra, lee atentamente las condiciones de venta en el sitio de Amazon correspondiente.",
+      "howItWorksTips4": "No dudes en contactarnos: Si tienes preguntas o sugerencias, no dudes en contactarnos.",
+      "howItWorksHighlightsTitle": "Puntos fuertes de Euro Price Guru:",
+      "howItWorksHighlights1": "Ahorro de tiempo: Compara precios en múltiples sitios de Amazon con solo unos clics.",
+      "howItWorksHighlights2": "Ahorros: Encuentra las mejores ofertas y ahorra en tus compras.",
+      "howItWorksHighlights3": "Simplicidad: Una interfaz fácil de usar para una comparación rápida y eficiente.",
+      "howItWorksHighlights4": "Transparencia: Somos claros sobre nuestro uso de enlaces de afiliados."
     }
   }
 };

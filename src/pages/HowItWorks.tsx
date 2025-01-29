@@ -15,20 +15,45 @@ const HowItWorks = () => {
           {t("howItWorksIntro")}
         </p>
 
-        <div className="space-y-8">
+        <div className="space-y-6">
           <section>
-            <h2 className="text-xl font-semibold mb-2">{t("step1Title")}</h2>
-            <p>{t("step1Text")}</p>
+            <p>{t("howItWorksSearch")}</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold mb-2">{t("step2Title")}</h2>
-            <p>{t("step2Text")}</p>
+            <p>{t("howItWorksCompare")}</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold mb-2">{t("step3Title")}</h2>
-            <p>{t("step3Text")}</p>
+            <p>{t("howItWorksChoose")}</p>
+          </section>
+
+          <section>
+            <p>{t("howItWorksRedirect")}</p>
+          </section>
+
+          <section>
+            <p>{t("howItWorksRevenue")}</p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold mb-2">{t("howItWorksTipsTitle")}</h2>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>{t("howItWorksTips1")}</li>
+              <li>{t("howItWorksTips2")}</li>
+              <li>{t("howItWorksTips3")}</li>
+              <li>{t("howItWorksTips4")}</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold mb-2">{t("howItWorksHighlightsTitle")}</h2>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>{t("howItWorksHighlights1")}</li>
+              <li>{t("howItWorksHighlights2")}</li>
+              <li>{t("howItWorksHighlights3")}</li>
+              <li>{t("howItWorksHighlights4")}</li>
+            </ul>
           </section>
         </div>
       </div>
