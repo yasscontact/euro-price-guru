@@ -3,18 +3,20 @@ import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from "react-i18next";
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
   const [searchType, setSearchType] = useState<"asin" | "keyword">("keyword");
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (!query.trim()) {
       toast({
-        title: "Erreur",
-        description: "Veuillez entrer un terme de recherche",
+        title: t("error"),
+        description: t("enterSearchTerm"),
         variant: "destructive",
       });
       return;
@@ -26,7 +28,7 @@ const SearchBar = () => {
   return (
     <form onSubmit={handleSearch} className="search-container p-8 rounded-xl">
       <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">
-        Comparez les prix Amazon en Europe
+        {t("compareAmazonPrices")}
       </h2>
       <div className="flex flex-col gap-4">
         <div className="flex justify-center gap-4 text-white">
@@ -38,7 +40,7 @@ const SearchBar = () => {
               onChange={() => setSearchType("keyword")}
               className="text-amazon-orange focus:ring-amazon-orange"
             />
-            Recherche par mots-clés
+            {t("searchByKeyword")}
           </label>
           <label className="flex items-center gap-2">
             <input
@@ -48,7 +50,7 @@ const SearchBar = () => {
               onChange={() => setSearchType("asin")}
               className="text-amazon-orange focus:ring-amazon-orange"
             />
-            Recherche par ASIN
+            {t("searchByAsin")}
           </label>
         </div>
         <div className="relative">
@@ -58,8 +60,8 @@ const SearchBar = () => {
             onChange={(e) => setQuery(e.target.value)}
             placeholder={
               searchType === "keyword"
-                ? "Rechercher un produit..."
-                : "Entrez un ASIN ou collez une URL Amazon..."
+                ? t("searchProduct")
+                : t("enterAsin")
             }
             className="search-input pr-12"
           />
@@ -72,11 +74,7 @@ const SearchBar = () => {
           </Button>
         </div>
         <p className="text-white/80 text-sm text-center">
-          {searchType === "asin" ? (
-            <>Exemple: B07PZR3PVB ou https://www.amazon.fr/dp/B07PZR3PVB</>
-          ) : (
-            <>Exemple: PlayStation 5, AirPods Pro</>
-          )}
+          {searchType === "asin" ? t("exampleAsin") : t("exampleKeywords")}
         </p>
       </div>
     </form>

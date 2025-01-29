@@ -82,7 +82,12 @@ const resources = {
       "howItWorksHighlights1": "Gain de temps : Comparez les prix sur plusieurs sites Amazon en quelques clics.",
       "howItWorksHighlights2": "Économies : Trouvez les meilleures offres et économisez sur vos achats.",
       "howItWorksHighlights3": "Simplicité : Une interface facile à utiliser pour une comparaison rapide et efficace.",
-      "howItWorksHighlights4": "Transparence : Nous sommes clairs sur notre utilisation des liens d'affiliation."
+      "howItWorksHighlights4": "Transparence : Nous sommes clairs sur notre utilisation des liens d'affiliation.",
+
+      // Best Sellers
+      "bestSavingsOpportunities": "Meilleures opportunités d'économies",
+      "amazonAffiliateDisclosure": "En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises",
+      "price": "Prix",
     }
   },
   en: {
@@ -165,7 +170,12 @@ const resources = {
       "howItWorksHighlights1": "Time-saving: Compare prices across multiple Amazon sites in just a few clicks.",
       "howItWorksHighlights2": "Savings: Find the best deals and save on your purchases.",
       "howItWorksHighlights3": "Simplicity: An easy-to-use interface for quick and efficient comparison.",
-      "howItWorksHighlights4": "Transparency: We are clear about our use of affiliate links."
+      "howItWorksHighlights4": "Transparency: We are clear about our use of affiliate links.",
+
+      // Best Sellers
+      "bestSavingsOpportunities": "Best Savings Opportunities",
+      "amazonAffiliateDisclosure": "As an Amazon Partner, I earn from qualifying purchases",
+      "price": "Price",
     }
   },
   de: {
@@ -248,7 +258,12 @@ const resources = {
       "howItWorksHighlights1": "Zeitsparend: Vergleichen Sie Preise auf mehreren Amazon-Seiten mit wenigen Klicks.",
       "howItWorksHighlights2": "Sparen: Finden Sie die besten Angebote und sparen Sie bei Ihren Einkäufen.",
       "howItWorksHighlights3": "Einfachheit: Eine benutzerfreundliche Oberfläche für schnelle und effiziente Vergleiche.",
-      "howItWorksHighlights4": "Transparenz: Wir sind transparent bezüglich unserer Nutzung von Affiliate-Links."
+      "howItWorksHighlights4": "Transparenz: Wir sind transparent bezüglich unserer Nutzung von Affiliate-Links.",
+
+      // Best Sellers
+      "bestSavingsOpportunities": "Beste Sparmöglichkeiten",
+      "amazonAffiliateDisclosure": "Als Amazon-Partner verdiene ich an qualifizierten Verkäufen",
+      "price": "Preis",
     }
   },
   it: {
@@ -331,7 +346,12 @@ const resources = {
       "howItWorksHighlights1": "Risparmio di tempo: Confronta i prezzi su più siti Amazon in pochi clic.",
       "howItWorksHighlights2": "Risparmi: Trova le migliori offerte e risparmia sui tuoi acquisti.",
       "howItWorksHighlights3": "Semplicità: Un'interfaccia facile da usare per un confronto rapido ed efficiente.",
-      "howItWorksHighlights4": "Trasparenza: Siamo chiari sul nostro utilizzo dei link di affiliazione."
+      "howItWorksHighlights4": "Trasparenza: Siamo chiari sul nostro utilizzo dei link di affiliazione.",
+
+      // Best Sellers
+      "bestSavingsOpportunities": "Migliori opportunità di risparmio",
+      "amazonAffiliateDisclosure": "In qualità di Partner Amazon, guadagno dagli acquisti idonei",
+      "price": "Prezzo",
     }
   },
   es: {
@@ -414,7 +434,12 @@ const resources = {
       "howItWorksHighlights1": "Ahorro de tiempo: Compara precios en múltiples sitios de Amazon con solo unos clics.",
       "howItWorksHighlights2": "Ahorros: Encuentra las mejores ofertas y ahorra en tus compras.",
       "howItWorksHighlights3": "Simplicidad: Una interfaz fácil de usar para una comparación rápida y eficiente.",
-      "howItWorksHighlights4": "Transparencia: Somos claros sobre nuestro uso de enlaces de afiliados."
+      "howItWorksHighlights4": "Transparencia: Somos claros sobre nuestro uso de enlaces de afiliados.",
+
+      // Best Sellers
+      "bestSavingsOpportunities": "Mejores oportunidades de ahorro",
+      "amazonAffiliateDisclosure": "Como socio de Amazon, gano por compras que cumplen los requisitos",
+      "price": "Precio",
     }
   }
 };

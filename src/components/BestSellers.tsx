@@ -1,6 +1,7 @@
 import { Euro } from "lucide-react";
 import { useExchangeRates } from "@/hooks/useExchangeRates";
 import { useCurrency } from "@/contexts/CurrencyContext";
+import { useTranslation } from "react-i18next";
 import {
   Carousel,
   CarouselContent,
@@ -48,6 +49,7 @@ const mockBestSellers = [
 const BestSellers = () => {
   const { data: exchangeRates } = useExchangeRates();
   const { currency } = useCurrency();
+  const { t } = useTranslation();
 
   const formatPrice = (price: number) => {
     if (!exchangeRates || !exchangeRates.rates) return price;
@@ -66,10 +68,10 @@ const BestSellers = () => {
       <div className="flex justify-between items-center mb-6">
         <div>
           <h2 className="text-2xl font-bold text-amazon-dark">
-            Meilleures opportunités d'économies
+            {t("bestSavingsOpportunities")}
           </h2>
           <p className="text-xs italic mt-1">
-            En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises
+            {t("amazonAffiliateDisclosure")}
           </p>
         </div>
       </div>
@@ -100,7 +102,7 @@ const BestSellers = () => {
                   <div className="space-y-2">
                     <p className="text-green-600 flex items-center gap-1">
                       <Euro className="h-4 w-4" />
-                      Prix: {formatPrice(item.minPrice)} ({item.bestMarket})
+                      {t("price")}: {formatPrice(item.minPrice)} ({item.bestMarket})
                     </p>
                   </div>
                 </div>
